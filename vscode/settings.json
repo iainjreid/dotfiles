@@ -1,0 +1,14 @@
+{
+    "window.openFilesInNewWindow": "on",
+    "window.zoomLevel": 0,
+    "git.confirmSync": false,
+    "editor.rulers": [
+        120
+    ],
+    "editor.tabSize": 2,
+    "editor.formatOnPaste": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,    
+    "typescript.referencesCodeLens.enabled": false,
+    "workbench.iconTheme": "vs-seti",
+    "workbench.colorTheme": "Solarized Dark",
+}
