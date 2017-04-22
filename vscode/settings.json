@@ -1,6 +1,8 @@
 {
     "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.cursorStyle": "block",
     "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
     "editor.glyphMargin": true,
     "editor.rulers": [
         120
@@ -11,20 +13,27 @@
         "*.tpl": "html",
         "*.raml": "yaml"
     },
+    "files.eol": "\n",
+    "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "git.confirmSync": false,
     "search.exclude": {
         "**/node_modules": true,
         "**/bower_components": true
     },
-    "tslint.configFile": "./tslint.json",
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cwd": "./",
+    "terminal.integrated.shell.windows": "C:\\Windows\\sysnative\\bash.exe",
     "terminal.integrated.shellArgs.osx": [
         "-l"
     ],
+    "tslint.configFile": "./tslint.json",
     "typescript.check.tscVersion": false,
     "typescript.referencesCodeLens.enabled": false,
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "vs-seti",
     "window.openFilesInNewWindow": "on",
-    "window.zoomLevel": 0
+    "window.zoomLevel": 0,
 }
