@@ -1,0 +1,23 @@
+#!/bin/bash
+
+BRANCH_PATH=$(git symbolic-ref -q HEAD)
+BRANCH_NAME=${BRANCH_PATH##*/}
+
+if [ "${BRANCH_NAME}" == "master" ] || [ "${BRANCH_NAME}" == "develop" ]; then
+  BRANCH_NAME="chore"
+fi
+
+COMMIT_TITLE=`head -n 1 $1`
+
+# Ensure that the commit title begins with the branch identifier
+if [ $(head -c `expr ${#BRANCH_NAME} + 2` $1) != [${BRANCH_NAME}] ]; then
+  echo "Aborting commit due to invalid commit title."
+  exit 1
+fi
+
+# Ensure that there is some sort of content in the commit title
+if [ $(expr ${#BRANCH_NAME} + 3) -ge ${#COMMIT_TITLE} ]; then
+  echo "Aborting commit due to incomplete commit title."
+  exit 1
+fi
+
