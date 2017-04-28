@@ -3,7 +3,7 @@
 	email = iainreid382@gmail.com
 
 [core]
-	editor = vim
+	editor = vim -c "star!"
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
 	fileMode = false
