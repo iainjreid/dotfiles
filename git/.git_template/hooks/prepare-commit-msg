@@ -1,0 +1,13 @@
+#!/bin/bash
+
+BRANCH_PATH=$(git symbolic-ref -q HEAD)
+BRANCH_NAME=${BRANCH_PATH##*/}
+
+if [ "${BRANCH_NAME}" == "master" ] || [ "${BRANCH_NAME}" == "develop" ]; then
+  BRANCH_NAME="chore"
+fi
+
+if [ -z $(head -n1 $1) ]; then
+  ex -sc "1i|[$BRANCH_NAME] " -cx $1
+fi
+
