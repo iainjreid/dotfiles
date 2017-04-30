@@ -48,11 +48,10 @@
 	aa = add --all
 	ai = add -i
 	amend = commit --amend
-	b = branch
-	ba = branch -a
+	b = branch -vv
+	ba = branch -avv
 	bd = branch -d
-	br = branch -r
-	br = branch
+	br = branch -rvv
 	ci = commit
 	cl = clone
 	co = checkout
