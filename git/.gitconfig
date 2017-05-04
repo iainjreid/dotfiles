@@ -66,6 +66,7 @@
 	m = merge
 	purr = pull --rebase
 	sa = stash apply
+	sd = stash drop
 	sl = stash list
 	ss = stash save
 	st = status -sb
