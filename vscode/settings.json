@@ -34,5 +34,6 @@
     "workbench.colorTheme": "Solarized Dark",
     "workbench.iconTheme": "vs-seti",
     "window.openFilesInNewWindow": "on",
+    "window.nativeTabs": true,
     "window.zoomLevel": 0
 }
