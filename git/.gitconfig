@@ -9,7 +9,7 @@
 	fileMode = false
 
 [push]
-	default = matching
+	default = simple
 
 [color]
 	ui = auto
