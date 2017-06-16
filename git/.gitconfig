@@ -1,49 +1,13 @@
 [user]
 	name = Iain Reid
 	email = iainreid382@gmail.com
-
+	
 [core]
 	editor = vim -c "star!"
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	excludesfile = ~/.gitignore
-	fileMode = false
-
-[push]
-	default = simple
-
-[color]
-	ui = auto
-
-[color "branch"]
-	current = yellow bold
-	local = green bold
-	remote = cyan bold
-
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
-
-[color "status"]
-	added = green bold
-	changed = yellow bold
-	untracked = red bold
-
-[diff]
-	tool = vimdiff
-
-[github]
-	user = iainreid820
-
-[gitflow "prefix"]
-	feature = feature/
-	release = release/
-	hotfix = hotfix/
-	support = support/
-	versiontag = v
-
+	filemode = false
+	
 [alias]
 	aa = add --all
 	ai = add -i
@@ -73,5 +37,41 @@
 	standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday
 	tree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset' --date=short
 
+[color]
+	ui = auto
+
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+
+[diff]
+	tool = vimdiff
+
+[gitflow "prefix"]
+	feature = feature/
+	release = release/
+	hotfix = hotfix/
+	support = support/
+	versiontag = v
+	
+[github]
+	user = iainreid820
+	
 [init]
-	templatedir = ~/.git-templates
+	templatedir = ${HOME}/.git-templates
+	
+[push]
+	default = simple
