@@ -72,3 +72,6 @@
 	st = status -sb
 	standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday
 	tree = log --graph --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset' --date=short
+
+[init]
+	templatedir = ~/.git-templates
