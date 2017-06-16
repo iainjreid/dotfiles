@@ -3,7 +3,7 @@
 BRANCH_PATH=$(git symbolic-ref -q HEAD)
 BRANCH_NAME=${BRANCH_PATH##*/}
 
-if [ "${BRANCH_NAME}" == "master" ] || [ "${BRANCH_NAME}" == "develop" ]; then
+if [ "${BRANCH_NAME}" = "master" ] || [ "${BRANCH_NAME}" = "develop" ]; then
   BRANCH_NAME="chore"
 fi
 
