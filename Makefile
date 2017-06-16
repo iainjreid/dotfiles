@@ -3,6 +3,7 @@
 all: git
 
 git:
+	cp -R git/.git-templates ${HOME}/.git-templates
 	cp git/.gitconfig ${HOME}/.gitconfig
 
 vscode-mac:
