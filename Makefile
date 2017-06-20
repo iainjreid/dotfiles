@@ -1,10 +1,12 @@
-.PHONY: git
-
 all: git
+.PHONY: all git vscode-mac
 
-git:
-	cp -R git/.git-templates ${HOME}/.git-templates
-	cp git/.gitconfig ${HOME}/.gitconfig
+git :
+	-@ unlink ${HOME}/.git-templates
+	-@ unlink ${HOME}/.gitconfig
+	ln -s ${PWD}/git/.git-templates/ ${HOME}/.git-templates
+	ln -s ${PWD}/git/.gitconfig ${HOME}/.gitconfig
 
-vscode-mac:
-	cp vscode/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
+vscode-mac :
+	-@ unlink ${HOME}/Library/Application\ Support/Code/User/settings.json
+	ln -sf ${PWD}/vscode/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
