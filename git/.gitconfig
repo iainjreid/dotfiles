@@ -71,8 +71,5 @@
 [github]
 	user = iainreid820
 	
-[init]
-	templatedir = ~/.git-templates
-	
 [push]
 	default = simple
