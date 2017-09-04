@@ -33,6 +33,7 @@
 	sa = stash apply
 	sd = stash drop
 	sl = stash list
+	squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
 	ss = stash save
 	st = status -sb
 	standup = log --pretty=format:'%Cred%h%Creset -%Creset %s %Cgreen(%cD) %C(bold blue)<%an>%Creset' --since yesterday
