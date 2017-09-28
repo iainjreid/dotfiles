@@ -16,6 +16,7 @@
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "git.confirmSync": false,
+    "html.format.contentUnformatted": "pre, script, style",
     "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
     "search.exclude": {
         "**/node_modules": true,
@@ -31,12 +32,14 @@
     ],
     "tslint.configFile": "./tslint.json",
     "typescript.check.tscVersion": false,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
     "typescript.referencesCodeLens.enabled": false,
-    "workbench.colorTheme": "Solarized Dark",
-    "workbench.iconTheme": "vs-seti",
     "window.openFilesInNewWindow": "on",
     "window.nativeTabs": true,
     "window.zoomLevel": 0,
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.iconTheme": "vs-seti",
+    "workbench.startupEditor": "newUntitledFile",
     "[c]": {
         "editor.quickSuggestions": false
     },
