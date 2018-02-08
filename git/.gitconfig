@@ -16,6 +16,7 @@
 	b = branch -vv
 	ba = branch -avv
 	bd = branch -d
+	bdm = "!git fetch -p && for branch in `git branch -vv | grep ': gone]' | awk '{print $1}'`; do git branch -D $branch; done;"
 	br = branch -rvv
 	ci = commit
 	cl = clone
