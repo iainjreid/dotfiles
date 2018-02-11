@@ -1,38 +1,6 @@
-" enable vim features instead of strict vi compatibility
 set nocompatible
-
-" do not wrap long lines; have them scroll off the side
-set nowrap
-
-" try to detect the filetype
-filetype on
-
-" enable syntax highlighting
-syntax on
-
-" enable loading the plugin file for specific file types
-filetype plugin on
-
-" enable loading the indent file for specific file types
-filetype indent on
-
-" tell vim it's OK to use 256 colors at the terminal
-set t_Co=256
-
-" show matching brackets and parens
-set showmatch
-
-" set character encoding to UTF-8
-set encoding=utf-8
-
-" show 3 lines above or below cursor when scrolling
-set scrolloff=3
-
-" show line and column number
-set ruler
-
-" turn off mouse pointer when typing begins
-set mousehide
+set noshowmode
+set laststatus=2
 
 " Open split panes in a more natural way
 set splitbelow
@@ -43,4 +11,41 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+call plug#begin('~/.vim/plugged')
+
+" After testing, lightline performs better on startup than the most actively
+" developed alternative, vim-airline. It also has a more robust approach to
+" configuration in that it relies less on third-party integrations, and more
+" upon strict, upfront configuration provided buy the user.
+Plug 'itchyny/lightline.vim'
+
+let g:lightline = {
+\   'active': {
+\     'left': [
+\       [ 'mode', 'paste' ],
+\       [ 'gitbranch', 'readonly', 'filename', 'modified' ]
+\     ]
+\   },
+\   'component_function': {
+\     'gitbranch': 'fugitive#head'
+\   }
+\ }
+
+" For quicker project navigation and asynchronous testing and building, I use
+" both vim-dispatch and vim-projectionist.
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-projectionist'
+
+let g:projectionist_heuristics = {
+\   'package.json': {
+\     'src/main/*.js': {'alternate': 'src/test/{}.spec.js'},
+\     'src/test/*.spec.js': {'alternate': 'src/main/{}.js'}
+\   }
+\ }
+
+Plug 'tpope/vim-fugitive'
+Plug 'thaerkh/vim-workspace'
+
+call plug#end()
 

@@ -1,5 +1,5 @@
 all: git
-.PHONY: all git vscode-mac
+.PHONY: all git vim nvim vscode-mac
 
 git :
 	-@ unlink ${HOME}/.git-templates
