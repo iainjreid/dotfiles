@@ -1,4 +1,4 @@
-all: git
+all: git vim
 .PHONY: all git vim nvim vscode-mac
 
 git :
@@ -6,12 +6,14 @@ git :
 	-@ unlink ${HOME}/.gitconfig
 	-@ unlink ${HOME}/.gitignore
 	ln -s ${PWD}/git/.git-templates/ ${HOME}/.git-templates
-	ln -s ${PWD}/git/.gitconfig ${HOME}/.gitconfig
-	ln -s ${PWD}/git/.gitignore ${HOME}/.gitignore
+	ln -s ${PWD}/git/.gitconfig      ${HOME}/.gitconfig
+	ln -s ${PWD}/git/.gitignore      ${HOME}/.gitignore
 
 vim :
+	-@ unlink ${HOME}/.vim/minisnip
 	-@ unlink ${HOME}/.vim/vimrc
-	ln -s ${PWD}/vim/vimrc ${HOME}/.vim/vimrc
+	ln -s ${PWD}/vim/minisnip/ ${HOME}/.vim/minisnip
+	ln -s ${PWD}/vim/vimrc     ${HOME}/.vim/vimrc
 
 nvim :
 	-@ unlink ${HOME}/.config/nvim/init.vim
@@ -20,3 +22,4 @@ nvim :
 vscode-mac :
 	-@ unlink ${HOME}/Library/Application\ Support/Code/User/settings.json
 	ln -sf ${PWD}/vscode/settings.json ${HOME}/Library/Application\ Support/Code/User/settings.json
+
