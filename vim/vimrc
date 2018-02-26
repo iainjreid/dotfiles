@@ -1,6 +1,7 @@
 set nocompatible
 set noshowmode
 set laststatus=2
+set termguicolors
 
 " Open split panes in a more natural way
 set splitbelow
@@ -44,8 +45,15 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 
+Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
+Plug 'elzr/vim-json'
+Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
+Plug 'elzr/vim-json'
 
 call plug#end()
+
+au FileType cpp  setl sw=2 sts=2 et
+au FileType json setl sw=2 sts=2 et
 
