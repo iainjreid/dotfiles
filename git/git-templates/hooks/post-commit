@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if ! [ -x "$(command -v gtm)" ]; then
+  echo 'Warning: gtm is not installed.' >&2
+  exit 0
+fi
+
+if ! [ -d "$DIRECTORY" ]; then
+  echo 'Warning: gtm is not initialised.' >&2
+  exit 0
+fi
+
+gtm commit --yes
+
