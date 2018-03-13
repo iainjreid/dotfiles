@@ -1,7 +1,6 @@
-[user]
-	name = Iain Reid
-	email = iainreid382@gmail.com
-	
+[include]
+	path = ~/.gitconfig.local
+
 [core]
 	editor = vim -c "star!"
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -63,15 +62,5 @@
 [diff]
 	tool = vimdiff
 
-[gitflow "prefix"]
-	feature = feature/
-	release = release/
-	hotfix = hotfix/
-	support = support/
-	versiontag = v
-	
-[github]
-	user = iainreid820
-	
 [push]
 	default = simple
