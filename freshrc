@@ -1,5 +1,20 @@
 #!/bin/bash
 
+for cmd in "git"; do
+  if ! [ -x "$(command -v ${cmd})" ]; then
+    echo "Error: ${cmd} is not available in your path"
+    exit 1
+  fi
+done
+
+# Ensure that the local git configuration is setup correctly
+for key in "name" "email"; do
+  if [ -z $(git config user.${key}) ]; then
+    read -p "Enter ${key} for Git: " input
+    git config -f ~/.gitconfig.local user.${key} "${input}"
+  fi
+done
+
 fresh freshshell/fresh bin/fresh --bin
 
 fresh git/gitconfig --file
