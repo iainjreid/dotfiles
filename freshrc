@@ -6,3 +6,9 @@ fresh git/gitconfig --file
 fresh git/gitignore --file
 fresh git/git-templates --file=~/.git-templates/
 fresh shell/bash/bash_profile --file
+
+# Vim
+fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
+
+fresh vim/vimrc --file
+fresh vim/minisnip --file=~/.vim/minisnip/
