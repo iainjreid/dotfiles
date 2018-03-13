@@ -1,6 +1,5 @@
-fresh ~/.dotfiles
-
-
+# fresh ~/.dotfiles
+Run commands, aliases, and general procrastination
 
 ### Installation
 
