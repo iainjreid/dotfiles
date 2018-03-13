@@ -45,6 +45,7 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 
+Plug 'git-time-metric/gtm-vim-plugin'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'elzr/vim-json'
@@ -56,4 +57,4 @@ call plug#end()
 
 au FileType cpp  setl sw=2 sts=2 et
 au FileType json setl sw=2 sts=2 et
-
+au FileType gitcommit setl spell
