@@ -17,8 +17,8 @@
 # way, and also handles some lightweight bootstrapping on clean systems.
 #
 
-source shell/misc/command_exists
-source shell/misc/fatal_error
+source ${FRESH_LOCAL}/shell/misc/command_exists
+source ${FRESH_LOCAL}/shell/misc/fatal_error
 
 # Ensure that the required commands are available
 for cmd in "git"; do
@@ -40,14 +40,14 @@ fresh freshshell/fresh bin/fresh --bin
 # Git
 fresh git/gitconfig --file
 fresh git/gitignore --file
-fresh git/git-templates --file ~/.git-templates/
+fresh git/git-templates --file=~/.git-templates/
 
 # Shell
 fresh shell/bash/bash_profile --file
 
 # Vim
-fresh junegunn/vim-plug plug.vim --file ~/.vim/autoload/plug.vim
+fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
 fresh editor/vim/vimrc    --file
-fresh editor/vim/minisnip --file ~/.vim/minisnip/
+fresh editor/vim/minisnip --file=~/.vim/minisnip/
 
