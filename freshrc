@@ -29,7 +29,7 @@ done
 
 # Ensure that the local git configuration is setup correctly
 for key in "name" "email"; do
-  if [ -z $(git config user.${key}) ]; then
+  if [ -z "$(git config user.${key})" ]; then
     read -p "Enter ${key} for Git: " input
     git config -f ~/.gitconfig.local user.${key} "${input}"
   fi
@@ -50,4 +50,7 @@ fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
 fresh editor/vim/vimrc    --file
 fresh editor/vim/minisnip --file=~/.vim/minisnip/
+
+# i3
+fresh i3 --file=~/.config/i3/
 
