@@ -1,0 +1,14 @@
+#!/bin/bash
+
+system_info.is_osx() {
+  if ! [[ "$(uname)" == "Darwin" ]]; then
+    return 1
+  fi
+}
+
+system_info.is_linux() {
+  if ! [[ "$(uname)" == "Linux" ]]; then
+    return 1
+  fi
+}
+

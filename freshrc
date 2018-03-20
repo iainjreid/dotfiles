@@ -19,6 +19,7 @@
 
 source ${FRESH_LOCAL}/shell/misc/command_exists
 source ${FRESH_LOCAL}/shell/misc/fatal_error
+source ${FRESH_LOCAL}/shell/misc/system_info
 
 # Ensure that the required commands are available
 for cmd in "git"; do
@@ -51,6 +52,12 @@ fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 fresh editor/vim/vimrc    --file
 fresh editor/vim/minisnip --file=~/.vim/minisnip/
 
-# i3
-fresh i3 --file=~/.config/i3/
+# Fonts
+fresh RedHatBrand/Overpass desktop-fonts/overpass      --file=~/.fonts/
+fresh RedHatBrand/Overpass desktop-fonts/overpass-mono --file=~/.fonts/
+
+if system_info.is_linux; then
+  # i3
+  fresh i3 --file=~/.config/i3/
+fi
 
