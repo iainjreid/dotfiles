@@ -49,7 +49,7 @@ fresh shell/bash/bash_profile --file
 # Vim
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
-fresh editor/vim/vimrc    --file
+fresh editor/vim/vimrc    --file=~/.vim/vimrc
 fresh editor/vim/minisnip --file=~/.vim/minisnip/
 
 # Fonts
