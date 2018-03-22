@@ -107,8 +107,9 @@ bar {
 	bindsym button5 nop
 	tray_output eDP1
 	tray_output LVDS-0
-	tray_padding 10 px
-  
+  tray_padding 10 px
+  mode hide
+
   colors {
     background $color00
     separator  $color0A
@@ -123,11 +124,9 @@ bar {
   }
 }
 
-# i3-gaps config
-gaps inner 30 
-gaps outer 0 
-
 new_window pixel 3 px
+
+hide_edge_borders both
 
 # Property Name           Border     BG         Text       Indicator  Child Border
 client.focused            $color05   $color0D   $color00   $color0D   $color0D
