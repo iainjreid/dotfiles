@@ -3,5 +3,6 @@
 /.idea/
 /.vscode/
 /.gtm/
+/.undodir/
 *.vim
 *.swp
