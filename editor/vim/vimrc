@@ -7,6 +7,25 @@ set termguicolors
 set splitbelow
 set splitright
 
+" Sane undo
+map <C-z> u
+
+" Simplify tab control
+map <leader>t :tabnew <Enter>
+map <leader>w :close <Enter>
+
+map <leader>1 1gt
+map <leader>2 2gt
+map <leader>3 3gt
+map <leader>4 4gt
+map <leader>5 5gt
+map <leader>6 6gt
+map <leader>7 7gt
+map <leader>8 8gt
+map <leader>9 9gt
+
+map <F2> :Goyo <Enter>
+
 " Simplify split pane navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -45,17 +64,14 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 
+Plug 'junegunn/goyo.vim'
+Plug 'reedes/vim-pencil'
 Plug 'git-time-metric/gtm-vim-plugin'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'elzr/vim-json'
+Plug 'plasticboy/vim-markdown'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
-Plug 'elzr/vim-json'
 
 call plug#end()
 
-au FileType cpp        setl sw=2 sts=2 et
-au FileType javascript setl sw=2 sts=2 et
-au FileType json       setl sw=2 sts=2 et
-au FileType gitcommit  setl spell
