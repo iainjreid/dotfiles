@@ -17,9 +17,9 @@
 # way, and also handles some lightweight bootstrapping on clean systems.
 #
 
-source ${FRESH_LOCAL}/shell/misc/command_exists
-source ${FRESH_LOCAL}/shell/misc/fatal_error
-source ${FRESH_LOCAL}/shell/misc/system_info
+. ${FRESH_LOCAL}/bash/methods/command_exists
+. ${FRESH_LOCAL}/bash/methods/fatal_error
+. ${FRESH_LOCAL}/bash/methods/system_info
 
 # Ensure that the required commands are available
 for cmd in "git"; do
@@ -39,25 +39,28 @@ done
 fresh freshshell/fresh bin/fresh --bin
 
 # Git
-fresh git/gitconfig --file
-fresh git/gitignore --file
+fresh git/gitconfig     --file
+fresh git/gitignore     --file
 fresh git/git-templates --file=~/.git-templates/
 
-# Shell
-fresh shell/bash/bash_profile --file
+# Bash
+fresh bash/bash_profile --file
 
 # Vim
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
-fresh editor/vim/vimrc    --file=~/.vim/vimrc
-fresh editor/vim/minisnip --file=~/.vim/minisnip/
+fresh vim/vimrc    --file=~/.vim/vimrc
+fresh vim/ftdetect --file=~/.vim/ftdetect/
+fresh vim/ftplugin --file=~/.vim/ftplugin/
+fresh vim/minisnip --file=~/.vim/minisnip/
 
-# Fonts
-fresh RedHatBrand/Overpass desktop-fonts/overpass      --file=~/.fonts/
-fresh RedHatBrand/Overpass desktop-fonts/overpass-mono --file=~/.fonts/
+if system_info.is_osx; then
+  if ! command_exists "brew"; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  fi
 
-if system_info.is_linux; then
-  # i3
-  fresh i3 --file=~/.config/i3/
+  # brew update --force
+  # brew bundle --file osx/Brewfile
 fi
+
 

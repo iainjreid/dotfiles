@@ -1,6 +1,5 @@
-#!/bin/sh
+#!/bin/bash
 
 fatal_error () {                                                                
   echo "Error: $1"; exit 1                                                      
 }
-

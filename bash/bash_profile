@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source ~/.fresh/build/shell.sh
+
+alias gitbranchname="git branch | grep \* | cut -c3-"
+
+export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+

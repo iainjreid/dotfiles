@@ -11,4 +11,3 @@ system_info.is_linux() {
     return 1
   fi
 }
-
