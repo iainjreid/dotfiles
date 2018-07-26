@@ -1,0 +1,47 @@
+#!/bin/bash
+
+TPUT_COLS=$(tput cols)
+TPUT_LINES=$(tput lines)
+
+print_coors () {
+    local IFS=","
+    local COORS=("${@}")
+
+    for i in "${COORS[@]}"; do
+        set $i
+        echo -en "\033[$1;$2f"
+        printf " "
+    done
+}
+
+declare -a TMP=()
+declare -a COORS=()
+declare -a PID_LIST=()
+
+for x in $(seq 1 $TPUT_COLS); do
+    for y in $(seq 1 $TPUT_LINES); do
+        COORS+=("$x,$y")
+    done
+done
+
+time {
+    for i in "${COORS[@]}"; do
+        TMP+=($i)
+
+        if [ "${#TMP[@]}" -eq "500" ]; then
+            print_coors "${TMP[@]}"  &
+            PID_LIST+=($!)
+            TMP=()
+        fi
+    done
+
+    if [ "${#TMP[@]}" -gt "0" ]; then
+        print_coors "${TMP[@]}"  &
+        PID_LIST+=($!)
+        TMP=()
+    fi
+
+    for pid in "${PID_LIST[@]}"; do
+        wait $pid
+    done
+}

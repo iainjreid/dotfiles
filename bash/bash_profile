@@ -10,3 +10,4 @@ export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;183m\]\\$\[$(tpu
 export GOPATH=${HOME}/go
 export GOROOT=/usr/local/go
 export PATH=${GOROOT}/bin:${PATH}
+
