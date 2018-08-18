@@ -6,3 +6,7 @@ alias gitbranchname="git branch | grep \* | cut -c3-"
 
 export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
+# Go env
+export GOPATH=${HOME}/go
+export GOROOT=/usr/local/go
+export PATH=${GOROOT}/bin:${PATH}
