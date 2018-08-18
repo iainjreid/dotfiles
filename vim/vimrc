@@ -2,6 +2,7 @@ set nocompatible
 set noshowmode
 set laststatus=2
 set termguicolors
+set visualbell
 
 " Open split panes in a more natural way
 set splitbelow
