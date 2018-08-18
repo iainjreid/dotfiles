@@ -67,11 +67,14 @@ let g:projectionist_heuristics = {
 
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
-Plug 'git-time-metric/gtm-vim-plugin'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
+
+if executable('gtm')
+  Plug 'git=time-metric/gtm-vim-plugin'
+endif
 
 call plug#end()
 
