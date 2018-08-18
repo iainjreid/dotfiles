@@ -1,24 +1,24 @@
-# [fresh] ~/.dotfiles
+# [fresh][freshshell] ~/.dotfiles
 Run commands, aliases, and general procrastination
 
 ### Installation
 
+#### Base
+
 ``` sh
 FRESH_LOCAL_SOURCE=iainreid820/dotfiles bash -c "`curl -sL get.freshshell.com`"
 ```
+This will install [Fresh][freshshell], a library that helps developers maintain clean dotfiles,and then proceed to install my own set of profiles, utilities, and general configuration under the current users home directory.
 
-### Tools used
+Some programs such as Vim however, will need a few more third party tools to work as expected.
 
-#### [Freshshell][freshshell]
+#### Git Time Metric
 
-To help me update my own dotfiles, and the various other libraries that I pull in, I use Freshshell's minimalist CLI.
-
-#### [ESH][esh]
-
-I work on macOS, Debian, and Gentoo, which sourcing packages between systems can be a little tricky. Thankfully I came across ESH, a minimal Bash implementation of ERB which lets me preprocess my scripts before writing them to my home directory. Depending on the target system, I can determine which package manager should be used, for example.
-
-I'd hugely recommended checking out this small templating engine, written in ~160 LOC, it's fantastic.
+```sh
+wget -O ${HOME}/bin/gtm https://github.com/git-time-metric/gtm/releases/download/v1.3.5/gtm.v1.3.5.linux.tar.gz
+```
+I track the time I spend working on most of my personal projects, and [Git Time Metric] helps me do this brilliantly.
 
 [freshshell]: https://github.com/freshshell/fresh
-[esh]: https://github.com/jirutka/esh
+[git-time-metric]: https://github.com/git-time-metric/gtm
 
