@@ -17,7 +17,7 @@ Some programs such as Vim however, will need a few more third party tools to wor
 ```sh
 wget -O ${HOME}/bin/gtm https://github.com/git-time-metric/gtm/releases/download/v1.3.5/gtm.v1.3.5.linux.tar.gz
 ```
-I track the time I spend working on most of my personal projects, and [Git Time Metric] helps me do this brilliantly.
+I track the time I spend working on most of my personal projects, and [Git Time Metric][git-time-metric] helps me do this brilliantly.
 
 [freshshell]: https://github.com/freshshell/fresh
 [git-time-metric]: https://github.com/git-time-metric/gtm

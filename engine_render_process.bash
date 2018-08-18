@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 RENDER_PIPE=./engine_render_pipe
 
