@@ -70,7 +70,6 @@ Plug 'reedes/vim-pencil'
 Plug 'git-time-metric/gtm-vim-plugin'
 Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
-Plug 'plasticboy/vim-markdown'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
 
