@@ -2,7 +2,6 @@ set nocompatible
 set noshowmode
 set laststatus=2
 set termguicolors
-set visualbell
 
 " Open split panes in a more natural way
 set splitbelow
@@ -87,7 +86,7 @@ Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
 
 if executable('gtm')
-  Plug 'git=time-metric/gtm-vim-plugin'
+  Plug 'git-time-metric/gtm-vim-plugin'
 endif
 
 call plug#end()
