@@ -54,6 +54,9 @@ fresh vim/ftdetect --file=~/.vim/ftdetect/
 fresh vim/ftplugin --file=~/.vim/ftplugin/
 fresh vim/minisnip --file=~/.vim/minisnip/
 
+# Misc
+fresh fwartner/mac-cleanup cleanup.sh --bin=~/bin/cleanup
+
 if system_info.is_osx; then
   if ! command_exists "brew"; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
