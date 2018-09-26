@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
                       ####                        ##                    
@@ -17,9 +17,9 @@
 # way, and also handles some lightweight bootstrapping on clean systems.
 #
 
-. ${FRESH_LOCAL}/bash/methods/command_exists
-. ${FRESH_LOCAL}/bash/methods/fatal_error
-. ${FRESH_LOCAL}/bash/methods/system_info
+source ${FRESH_LOCAL}/bash/methods/command_exists
+source ${FRESH_LOCAL}/bash/methods/fatal_error
+source ${FRESH_LOCAL}/bash/methods/system_info
 
 # Ensure that the required commands are available
 for cmd in "git"; do
@@ -54,16 +54,12 @@ fresh vim/ftdetect --file=~/.vim/ftdetect/
 fresh vim/ftplugin --file=~/.vim/ftplugin/
 fresh vim/minisnip --file=~/.vim/minisnip/
 
-# Misc
-fresh fwartner/mac-cleanup cleanup.sh --bin=~/bin/cleanup
-
 if system_info.is_osx; then
   if ! command_exists "brew"; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  # brew update --force
-  # brew bundle --file osx/Brewfile
+  fresh fwartner/mac-cleanup cleanup.sh --bin=~/bin/cleanup
 fi
 
 
