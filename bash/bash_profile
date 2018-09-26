@@ -2,7 +2,17 @@
 
 source ~/.fresh/build/shell.sh
 
-export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+if [[ "$TERM" =~ "screen".* ]]; then
+  export PS1="\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+else
+  export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+fi
+
+alias print_colors='
+  for i in {0..255}; do
+    printf "\x1b[38;5;%smcolours%s\n" "${i}" "${i}"
+  done | column
+'
 
 # Go env
 export GOPATH="${HOME}/go"
@@ -13,4 +23,6 @@ export PATH="${GOROOT}/bin:${PATH}"
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export -f print_colors
 
