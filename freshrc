@@ -45,6 +45,7 @@ fresh git/git-templates --file=~/.git-templates/
 
 # Bash
 fresh bash/bash_profile --file
+fresh iainreid820/prettyname prettyname.sh --bin=~/bin/prettyname
 
 # Vim
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
