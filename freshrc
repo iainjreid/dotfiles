@@ -47,6 +47,9 @@ fresh git/git-templates --file=~/.git-templates/
 fresh bash/bash_profile --file
 fresh iainreid820/prettyname prettyname.sh --bin=~/bin/prettyname
 
+# Tmux
+fresh tmux/tmux.conf --file
+
 # Vim
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
