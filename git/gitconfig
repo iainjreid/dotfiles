@@ -19,6 +19,7 @@
 	br = branch -rvv
 	ci = commit
 	cl = clone
+	clg = "!f() { [[ -z ${1} ]] && echo "Specify repository" || git clone git@github.com:${1}; }; f"
 	co = checkout
 	d = diff --word-diff --ignore-space-change --color-words --ignore-blank-lines
 	dc = diff --cached
