@@ -71,6 +71,9 @@ alias print_colors='
   done | column
 '
 
+# Source local configuration if found
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
+
 # Go env
 export GOPATH="${HOME}/go"
 export GOROOT="/usr/local/go"
