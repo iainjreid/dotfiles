@@ -1,5 +1,5 @@
 #!/bin/bash
 
-fatal_error () {                                                                
-  echo "Error: $1"; exit 1                                                      
+fatal_error() {                                                                
+  echo "Error: $1"; stop 1
 }
