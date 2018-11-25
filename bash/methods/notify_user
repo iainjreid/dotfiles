@@ -1,0 +1,18 @@
+#!/bin/bash
+
+source $(dirname $BASH_SOURCE)/fatal_error
+source $(dirname $BASH_SOURCE)/system_info
+
+notify_user() {
+  if [[ -z $1 ]]; then
+    fatal_error "No title"
+  fi
+
+  if [[ -z $2 ]]; then
+    fatal_error "No description"
+  fi
+
+  if system_info.is_osx; then
+    osascript -e "display notification \"$2\" with title \"$1\""
+  fi
+}
