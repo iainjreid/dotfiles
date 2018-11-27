@@ -18,7 +18,9 @@
 # lengthy startup.
 #
 
-source ~/.fresh/build/shell.sh
+. ~/.fresh/build/shell.sh
+
+export PATH="${HOME}/.local/bin:${PATH}"
 
 #
 # Traversing directories should be as quick and easy as possible, and bash can
@@ -74,7 +76,7 @@ export GOPATH="${HOME}/go"
 export GOROOT="/usr/local/go"
 export PATH="${GOROOT}/bin:${PATH}"
 
-# NVM env
+# Node env
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
