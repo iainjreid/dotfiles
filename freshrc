@@ -46,7 +46,8 @@ fresh git/git-templates --file=~/.git-templates/
 # Bash
 fresh bash/bashrc	--file
 fresh bash/bash_profile --file
-fresh iainreid820/prettyname prettyname.sh --bin=~/bin/prettyname
+fresh iainreid820/banner-cli banner --bin=~/bin/banner
+fresh iainreid820/prettyname-cli prettyname --bin=~/bin/prettyname
 
 # Tmux
 fresh tmux/tmux.conf --file
