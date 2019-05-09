@@ -79,6 +79,9 @@ export GOPATH="${HOME}/go"
 export GOROOT="/usr/local/go"
 export PATH="${GOROOT}/bin:${PATH}"
 
+# Ruby env
+export PATH="${HOME}/.rbenv/shims:${PATH}"
+
 # Node env
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
