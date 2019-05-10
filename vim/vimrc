@@ -26,6 +26,10 @@ map <leader>9 9gt
 
 map <F2> :Goyo <Enter>
 
+if has('mouse')
+  set mouse=a
+endif
+
 " Simplify split pane navigation
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
