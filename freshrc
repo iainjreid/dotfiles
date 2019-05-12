@@ -57,6 +57,7 @@ fresh tmux/tmux.conf --file
 fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
 fresh vim/vimrc    --file=~/.vim/vimrc
+fresh vim/gvimrc   --file=~/.vim/gvimrc
 fresh vim/ftdetect --file=~/.vim/ftdetect/
 fresh vim/ftplugin --file=~/.vim/ftplugin/
 fresh vim/minisnip --file=~/.vim/minisnip/
