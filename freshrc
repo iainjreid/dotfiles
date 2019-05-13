@@ -69,4 +69,6 @@ if system_info.is_osx; then
   fi
 
   fresh fwartner/mac-cleanup cleanup.sh --bin=~/bin/cleanup
+
+  fresh alacritty/alacritty.yml --file=~/.config/alacritty/alacritty.yml
 fi
