@@ -1,2 +1,3 @@
-setlocal spell
+" vi:syntax=vim
 
+setlocal spell

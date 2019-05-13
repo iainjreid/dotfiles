@@ -1,3 +1,6 @@
+" vi:syntax=vim
+
 set guioptions=
 set guifont=Menlo:h12
-set transparency=10
+
+colorscheme dynamic

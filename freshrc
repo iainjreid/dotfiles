@@ -1,9 +1,9 @@
 #!/bin/bash
 
 
-                      ####                        ##                    
-                    ##  ##                       ##                    
-                   ##                           ##                    
+                      ####                        ##
+                    ##  ##                       ##
+                   ##                           ##
                   ####  ## ###    ###    ###   ##     ## ###    ###
                  ##    #### ##  ## ##  ## ##  ####   #### ##  ## ##
                 ##    ##       #####   ##    ## ##  ##       ##
@@ -44,7 +44,7 @@ fresh git/gitignore     --file
 fresh git/git-templates --file=~/.git-templates/
 
 # Bash
-fresh bash/bashrc	--file
+fresh bash/bashrc       --file
 fresh bash/bash_profile --file
 
 fresh iainreid820/banner-cli banner --bin=~/bin/banner
@@ -58,6 +58,7 @@ fresh junegunn/vim-plug plug.vim --file=~/.vim/autoload/plug.vim
 
 fresh vim/vimrc    --file=~/.vim/vimrc
 fresh vim/gvimrc   --file=~/.vim/gvimrc
+fresh vim/colors   --file=~/.vim/colors/
 fresh vim/ftdetect --file=~/.vim/ftdetect/
 fresh vim/ftplugin --file=~/.vim/ftplugin/
 fresh vim/minisnip --file=~/.vim/minisnip/
@@ -69,5 +70,3 @@ if system_info.is_osx; then
 
   fresh fwartner/mac-cleanup cleanup.sh --bin=~/bin/cleanup
 fi
-
-
