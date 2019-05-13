@@ -1,7 +1,8 @@
+" vi:syntax=vim
+
 set nocompatible
 set noshowmode
 set laststatus=2
-set termguicolors
 
 " Open split panes in a more natural way
 set splitbelow
@@ -55,7 +56,7 @@ call plug#begin('~/.vim/plugged')
 " After testing, lightline performs better on startup than the most actively
 " developed alternative, vim-airline. It also has a more robust approach to
 " configuration in that it relies less on third-party integrations, and more
-" upon strict, upfront configuration provided buy the user.
+" upon strict, upfront configuration provided by the user.
 Plug 'itchyny/lightline.vim'
 
 let g:lightline = {
@@ -84,7 +85,6 @@ let g:projectionist_heuristics = {
 
 Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
-Plug 'chriskempson/base16-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
@@ -94,4 +94,3 @@ if executable('gtm')
 endif
 
 call plug#end()
-

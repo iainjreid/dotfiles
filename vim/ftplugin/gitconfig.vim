@@ -1,2 +1,3 @@
-setlocal autoindent ts=4 sw=4 sts=4 noexpandtab list
+" vi:syntax=vim
 
+setlocal autoindent ts=4 sw=4 sts=4 noexpandtab list

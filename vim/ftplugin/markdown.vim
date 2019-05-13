@@ -1,3 +1,5 @@
+" vi:syntax=vim
+
 setlocal autoindent linebreak nonumber ts=4 sw=4 wrap spell
 
 SoftPencil
@@ -55,4 +57,3 @@ function! TodoListMarkItemAsNotDone(line_num)
   let l:line = getline(a:line_num)
   call setline(a:line_num, substitute(l:line, '\[x\]', '[ ]', ''))
 endfunction
-
