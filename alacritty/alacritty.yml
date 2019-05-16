@@ -245,6 +245,8 @@ shell:
   program: /bin/bash
   args:
     - --login
+    - -c
+    - "tmux attach -t TMUX || tmux new -s TMUX"
 
 # Key bindings
 #

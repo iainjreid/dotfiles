@@ -16,44 +16,27 @@ function! <sid>hi(group, colorfg, colorbg, attr, guisp)
 endfunction
 
 " Color definitions
+let s:color00 = $COLOUR0
+let s:color01 = $COLOUR1
+let s:color02 = $COLOUR2
+let s:color03 = $COLOUR3
+let s:color04 = $COLOUR4
+let s:color05 = $COLOUR5
+let s:color06 = $COLOUR6
+let s:color07 = $COLOUR7
+let s:color08 = $COLOUR8
+let s:color09 = $COLOUR9
+let s:color0A = $COLOURA
+let s:color0B = $COLOURB
+let s:color0C = $COLOURC
+let s:color0D = $COLOURD
+let s:color0E = $COLOURE
+let s:color0F = $COLOURF
+
 if has("gui_running")
   let s:env = "gui"
-
-  let s:color00 = "#002635"
-  let s:color01 = "#00384d"
-  let s:color02 = "#517F8D"
-  let s:color03 = "#6C8B91"
-  let s:color04 = "#869696"
-  let s:color05 = "#a1a19a"
-  let s:color06 = "#e6e6dc"
-  let s:color07 = "#fafaf8"
-  let s:color08 = "#ff5a67"
-  let s:color09 = "#f08e48"
-  let s:color0A = "#ffcc1b"
-  let s:color0B = "#7fc06e"
-  let s:color0C = "#14747e"
-  let s:color0D = "#5dd7b9"
-  let s:color0E = "#9a70a4"
-  let s:color0F = "#c43060"
 else
   let s:env = "cterm"
-
-  let s:color00 = "00"
-  let s:color01 = "10"
-  let s:color02 = "11"
-  let s:color03 = "08"
-  let s:color04 = "12"
-  let s:color05 = "07"
-  let s:color06 = "13"
-  let s:color07 = "15"
-  let s:color08 = "01"
-  let s:color09 = "09"
-  let s:color0A = "03"
-  let s:color0B = "02"
-  let s:color0C = "06"
-  let s:color0D = "04"
-  let s:color0E = "05"
-  let s:color0F = "14"
 endif
 
 " Theme setup

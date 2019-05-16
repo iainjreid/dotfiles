@@ -23,6 +23,28 @@
 export PATH="${HOME}/.local/bin:${PATH}"
 
 #
+# These colours are used in my Vim and Tmux configuration, and any other
+# process that might need custom styling.
+#
+
+export COLOUR0="#002635"
+export COLOUR1="#00384d"
+export COLOUR2="#517F8D"
+export COLOUR3="#6C8B91"
+export COLOUR4="#869696"
+export COLOUR5="#a1a19a"
+export COLOUR6="#e6e6dc"
+export COLOUR7="#fafaf8"
+export COLOUR8="#ff5a67"
+export COLOUR9="#f08e48"
+export COLOURA="#ffcc1b"
+export COLOURB="#7fc06e"
+export COLOURC="#14747e"
+export COLOURD="#5dd7b9"
+export COLOURE="#9a70a4"
+export COLOURF="#c43060"
+
+#
 # Traversing directories should be as quick and easy as possible, and bash can
 # help us with this right out of the box.
 #
@@ -37,8 +59,8 @@ shopt -s dirspell 2> /dev/null
 shopt -s cdspell 2> /dev/null
 
 #
-# Keeping ones bash history can provide value feedback into habits and general
-# command usage and statistics over time.
+# Keeping ones bash history can provide valuable feedback into habits and
+# general command usage and statistics over time.
 #
 
 # Append to the history file, don't overwrite it
@@ -48,7 +70,7 @@ shopt -s histappend
 shopt -s cmdhist
 
 # Record each line as it gets issued
-PROMPT_COMMAND='history -a'
+PROMPT_COMMAND="history -a"
 
 # Set an overly large history value. I've haven't been bitten by this, yet!
 HISTSIZE=1000000
@@ -60,19 +82,14 @@ HISTTIMEFORMAT="%F %T "
 export EDITOR=vim
 
 if [[ "$TERM" =~ "screen".* ]]; then
-  export PS1="\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+  export PS1="\[\033[38;5;50m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 else
-  export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;183m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+  export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;50m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 fi
 
-alias print_colors='
-  for i in {0..255}; do
-    printf "\x1b[38;5;%smcolours%s\n" "${i}" "${i}"
-  done | column
-'
-
-# Source local configuration if found
-[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
+#
+# Environments setup.
+#
 
 # Go env
 export GOPATH="${HOME}/go"
@@ -86,6 +103,10 @@ export PATH="${HOME}/.rbenv/shims:${PATH}"
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# Source local configuration if found
+[[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
 
 # Notes
 n() {
