@@ -19,6 +19,7 @@
 #
 
 . ~/.fresh/build/shell.sh
+. ~/.git-completion.bash
 
 export PATH="${HOME}/.local/bin:${PATH}"
 
@@ -82,9 +83,9 @@ HISTTIMEFORMAT="%F %T "
 export EDITOR=vim
 
 if [[ "$TERM" =~ "screen".* ]]; then
-  export PS1="\[\033[38;5;50m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+  export PS1='➜ '
 else
-  export PS1="[\A] \w \[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;50m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+  export PS1='[\A] \w ➜ '
 fi
 
 #

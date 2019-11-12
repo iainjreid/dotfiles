@@ -43,11 +43,14 @@ fresh git/gitconfig     --file
 fresh git/gitignore     --file
 fresh git/git-templates --file=~/.git-templates/
 
+fresh git/git contrib/completion/git-completion.bash --file=~/.git-completion.bash
+fresh git/git contrib/completion/git-prompt.sh       --file=~/.git-prompt.sh
+
 # Bash
 fresh bash/bashrc       --file
 fresh bash/bash_profile --file
 
-fresh iainreid820/banner-cli banner --bin=~/bin/banner
+fresh iainreid820/banner-cli     banner     --bin=~/bin/banner
 fresh iainreid820/prettyname-cli prettyname --bin=~/bin/prettyname
 
 # Tmux
