@@ -44,10 +44,14 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" Set a variable is STDIN was used
+let g:stdin = 0
+autocmd StdinReadPre * let g:stdin = 1
+
 if argc() == 0
   augroup ProjectDrawer
     autocmd!
-    autocmd VimEnter * :Vexplore
+    autocmd VimEnter * if g:stdin == 0 | :Vexplore | endif
   augroup END
 endif
 
