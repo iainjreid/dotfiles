@@ -80,17 +80,23 @@ HISTFILESIZE=1000000
 # Store standard ISO-8601 timestamps with each entry
 HISTTIMEFORMAT="%F %T "
 
+# Hide commands prefixed with a space
+HISTCONTROL=ignorespace
+
 export EDITOR=vim
 
 if [[ "$TERM" =~ "screen".* ]]; then
-  export PS1='➜ '
+  export PS1='| '
 else
-  export PS1='[\A] \w ➜ '
+  export PS1='[\A] \w | '
 fi
 
 #
 # Environments setup.
 #
+
+# Brew
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 # Go env
 export GOPATH="${HOME}/go"
@@ -98,13 +104,16 @@ export GOROOT="/usr/local/go"
 export PATH="${GOROOT}/bin:${PATH}"
 
 # Ruby env
-export PATH="${HOME}/.rbenv/shims:${PATH}"
+export GEM_HOME=~/.ruby/
+export PATH="~/.ruby/bin:${PATH}"
 
 # Node env
 export NVM_DIR="${HOME}/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ]          && \. "$NVM_DIR/nvm.sh"           # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Rust env
+export PATH="${HOME}/.cargo/bin:${PATH}"
 
 # Source local configuration if found
 [[ -f ~/.bashrc.local ]] && . ~/.bashrc.local
