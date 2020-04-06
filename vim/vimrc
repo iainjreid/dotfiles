@@ -73,6 +73,14 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 
+Plug 'vimwiki/vimwiki'
+
+let g:vimwiki_list = [{
+\   'path': '~/wiki/',
+\   'syntax': 'markdown',
+\   'ext': '.md'
+\ }]
+
 Plug 'reedes/vim-pencil'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
