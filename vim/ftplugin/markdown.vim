@@ -7,7 +7,7 @@ SoftPencil
 let g:pencil#cursorwrap = 0
 let g:pencil#textwidth = 80
 
-" 
+"
 " Todo lists
 "
 nnoremap <buffer> <Space> :call TodoListToggleItem('.')<CR>
@@ -38,7 +38,7 @@ endfunction
 " Checks to see if the currnet line is marked as not done
 function! TodoListIsNotMarkedAsDone(line_num)
   let l:line = getline(a:line_num)
-  
+
   if match(l:line, '[ \]') != -1
     return 1
   else
