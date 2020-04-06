@@ -8,9 +8,6 @@ set laststatus=2
 set splitbelow
 set splitright
 
-" Sane undo
-map <C-z> u
-
 " Simplify tab control
 map <leader>t :tabnew <Enter>
 map <leader>w :close <Enter>
@@ -24,8 +21,6 @@ map <leader>6 6gt
 map <leader>7 7gt
 map <leader>8 8gt
 map <leader>9 9gt
-
-map <F2> :Goyo <Enter>
 
 if has('mouse')
   set mouse=a
@@ -44,18 +39,9 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-" Set a variable is STDIN was used
-let g:stdin = 0
-autocmd StdinReadPre * let g:stdin = 1
-
-if argc() == 0
-  augroup ProjectDrawer
-    autocmd!
-    autocmd VimEnter * if g:stdin == 0 | :Vexplore | endif
-  augroup END
-endif
-
 call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/vim-easy-align'
 
 " After testing, lightline performs better on startup than the most actively
 " developed alternative, vim-airline. It also has a more robust approach to
@@ -87,9 +73,7 @@ let g:projectionist_heuristics = {
 \   }
 \ }
 
-Plug 'junegunn/goyo.vim'
 Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-fugitive'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
 
