@@ -126,3 +126,7 @@ n() {
 nls() {
   ls -c ~/.notes/ | grep "$*"
 }
+
+# VimWiki
+alias wiki="vim -c VimwikiIndex"
+
