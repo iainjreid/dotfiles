@@ -85,6 +85,9 @@ Plug 'reedes/vim-pencil'
 Plug 'joereynolds/vim-minisnip'
 Plug 'thaerkh/vim-workspace'
 
+" Set to ensure disk write for use with hot reloading
+set nobackup nowritebackup
+
 if executable('gtm')
   Plug 'git-time-metric/gtm-vim-plugin'
 endif
