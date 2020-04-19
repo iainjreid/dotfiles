@@ -39,6 +39,9 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
+" Prepare for a dark background in the terminal
+set background=dark
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
