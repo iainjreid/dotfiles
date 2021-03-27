@@ -1,12 +1,20 @@
 " vi:syntax=vim
 
-set nocompatible
-set noshowmode
+"set t_Co=256
 set laststatus=2
+set backspace=indent,eol,start
+set background=dark
 
 " Open split panes in a more natural way
 set splitbelow
 set splitright
+
+highlight VertSplit cterm=NONE
+
+set fillchars+=vert:\│
+
+" Statusline
+set statusline=\ %f%=%y\ %p%%\ %c:%l\ 
 
 " Simplify tab control
 map <leader>t :tabnew <Enter>
@@ -39,54 +47,12 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-" Prepare for a dark background in the terminal
-set background=dark
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
 
-" After testing, lightline performs better on startup than the most actively
-" developed alternative, vim-airline. It also has a more robust approach to
-" configuration in that it relies less on third-party integrations, and more
-" upon strict, upfront configuration provided by the user.
-Plug 'itchyny/lightline.vim'
-
-let g:lightline = {
-\   'active': {
-\     'left': [
-\       [ 'mode', 'paste' ],
-\       [ 'gitbranch', 'readonly', 'filename', 'modified' ]
-\     ]
-\   },
-\   'component_function': {
-\     'gitbranch': 'fugitive#head'
-\   }
-\ }
-
-" For quicker project navigation and asynchronous testing and building, I use
-" both vim-dispatch and vim-projectionist.
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-projectionist'
-
-let g:projectionist_heuristics = {
-\   'package.json': {
-\     'src/main/*.js': {'alternate': 'src/test/{}.spec.js'},
-\     'src/test/*.spec.js': {'alternate': 'src/main/{}.js'}
-\   }
-\ }
-
-Plug 'vimwiki/vimwiki'
-
-let g:vimwiki_list = [{
-\   'path': '~/wiki/',
-\   'syntax': 'markdown',
-\   'ext': '.md'
-\ }]
-
 Plug 'reedes/vim-pencil'
 Plug 'joereynolds/vim-minisnip'
-Plug 'thaerkh/vim-workspace'
 
 " Set to ensure disk write for use with hot reloading
 set nobackup nowritebackup
@@ -96,3 +62,45 @@ if executable('gtm')
 endif
 
 call plug#end()
+
+" Starts a new session
+function StartSession()
+  let b:sessiondir = $HOME . "/.local/state/vim" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  
+  if (filewritable(b:sessiondir) != 2)
+    exe 'silent !mkdir -p ' b:sessiondir
+    redraw!
+  endif
+  
+  exe "mksession! " . b:sessionfile
+  echo 'Session started'
+endfunction
+
+" Loads a session if it exists
+function LoadSession()
+  let b:sessiondir = $HOME . "/.local/state/vim" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+
+  if (filereadable(b:sessionfile))
+    exe 'source ' b:sessionfile
+    echo 'Session loaded'
+  endif
+endfunction
+
+" Saves a session if it exists
+function SaveSession()
+  let b:sessiondir = $HOME . "/.local/state/vim" . getcwd()
+  let b:sessionfile = b:sessiondir . "session.vim"
+
+  if (filereadable(b:sessionfile))
+    exe "mksession! " . b:sessionfile
+  endif
+endfunction
+
+if !argc()
+  au VimEnter * :call LoadSession()
+  au VimLeave * :call SaveSession()
+  
+  map <leader>m :call StartSession()<CR>
+endif
