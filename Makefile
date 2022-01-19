@@ -16,31 +16,31 @@ help:
 all: bin git npm profile rust tmux vim xdg
 
 bin: $(XDG_BIN_HOME) $(XDG_CONFIG_HOME) profile xdg
-	$(LN)	$(PWD)/.local/bin/*			$(XDG_BIN_HOME)/
-	$(LN)	$(PWD)/.config/profile.d/10-bin.sh	$(XDG_CONFIG_HOME)/profile.d/
+	$(LN)	$(PWD)/.local/bin/*                     $(XDG_BIN_HOME)/
+	$(LN)	$(PWD)/.config/profile.d/10-bin.sh      $(XDG_CONFIG_HOME)/profile.d/
 
 git: $(XDG_CONFIG_HOME)
-	$(LN)	$(PWD)/.config/git			$(XDG_CONFIG_HOME)/
+	$(LN)	$(PWD)/.config/git                      $(XDG_CONFIG_HOME)/
 
 npm: $(XDG_CONFIG_HOME) profile xdg
-	$(LN)	$(PWD)/.config/npm			$(XDG_CONFIG_HOME)/
-	$(LN)	$(PWD)/.config/profile.d/50-nodejs.sh	$(XDG_CONFIG_HOME)/profile.d/
+	$(LN)	$(PWD)/.config/npm                      $(XDG_CONFIG_HOME)/
+	$(LN)	$(PWD)/.config/profile.d/50-nodejs.sh   $(XDG_CONFIG_HOME)/profile.d/
 
 profile: $(XDG_CONFIG_HOME)/profile.d
-	$(LN)	$(PWD)/.profile				$(HOME)/
+	$(LN)	$(PWD)/.profile                         $(HOME)/
 
 rust: $(XDG_CONFIG_HOME) profile xdg
-	$(LN)	$(PWD)/.config/profile.d/50-rust.sh	$(XDG_CONFIG_HOME)/profile.d/
+	$(LN)	$(PWD)/.config/profile.d/50-rust.sh     $(XDG_CONFIG_HOME)/profile.d/
 
 tmux: $(XDG_CONFIG_HOME)
-	$(LN)	$(PWD)/.config/tmux			$(XDG_CONFIG_HOME)/
+	$(LN)	$(PWD)/.config/tmux                     $(XDG_CONFIG_HOME)/
 
 vim: profile
-	$(LN)	$(PWD)/.vim				$(HOME)/
-	$(LN)	$(PWD)/.config/profile.d/99-vim.sh	$(XDG_CONFIG_HOME)/profile.d/
+	$(LN)	$(PWD)/.vim                             $(HOME)/
+	$(LN)	$(PWD)/.config/profile.d/99-vim.sh      $(XDG_CONFIG_HOME)/profile.d/
 
 xdg: $(XDG_CONFIG_HOME) profile
-	$(LN)	$(PWD)/.config/profile.d/00-xdg.sh	$(XDG_CONFIG_HOME)/profile.d/
+	$(LN)	$(PWD)/.config/profile.d/00-xdg.sh      $(XDG_CONFIG_HOME)/profile.d/
 
 # target: clean	Dereference all links to these dotfiles
 clean:
