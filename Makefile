@@ -16,7 +16,8 @@ help:
 all: bin git npm profile rust tmux vim xdg
 
 bin: $(XDG_BIN_HOME) $(XDG_CONFIG_HOME) profile xdg
-	$(LN)	$(PWD)/.local/bin/*                     $(XDG_BIN_HOME)/
+	$(LN)	$(PWD)/.local/bin/shutdown              $(XDG_BIN_HOME)/
+	$(LN)	$(PWD)/.local/bin/suspend               $(XDG_BIN_HOME)/
 	$(LN)	$(PWD)/.config/profile.d/10-bin.sh      $(XDG_CONFIG_HOME)/profile.d/
 
 git: $(XDG_CONFIG_HOME)
