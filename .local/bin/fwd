@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Forward a remote port over SSH
+#
+# fwd <host> <port>
+#
+
+ssh -N -L $2:localhost:$2 $1
+
