@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# A super simple utility to run a program without network access.
+#
+# Usage:
+#	foil ping www.example.com
+#	-> ping: www.example.com: Temporary failure in name resolution
+#
+
+exec unshare -c -n -- "$@"
+
