@@ -6,6 +6,11 @@
 #	foil ping www.example.com
 #	-> ping: www.example.com: Temporary failure in name resolution
 #
+# Notes:
+#
+# * "-r" is preferred over "-c" to maintain BusyBox compatibility. The program
+#   will think that it's running as root, but that's its problem.
+#
 
-exec unshare -c -n -- "$@"
+exec unshare -r -n -- "$@"
 
