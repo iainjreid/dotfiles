@@ -1,0 +1,5 @@
+#!/bin/sh
+
+for file in "$XDG_CONFIG_HOME"/Xresources.d/*.Xresources; do
+  [ -r "$file" ] && cat "$file"
+done | xrdb -

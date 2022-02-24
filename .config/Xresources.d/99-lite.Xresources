@@ -1,0 +1,14 @@
+lite.background:  COLOR8
+lite.foreground:  COLOR6
+lite.carat:       COLOR7
+
+lite.syntax.normal:      COLORE
+lite.syntax.symbol:      COLOR4
+lite.syntax.comment:     COLORE
+lite.syntax.keyword:     COLOR9
+lite.syntax.number:      COLOR3
+lite.syntax.literal:     COLOR3
+lite.syntax.string:      COLOR3
+lite.syntax.operator:    COLORB
+lite.syntax.function:    COLOR9
+

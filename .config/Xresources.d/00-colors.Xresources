@@ -1,0 +1,34 @@
+! Colours are grouped
+
+! Black
+#define COLOR0 #000000
+#define COLOR8 #0f0f0f
+
+! Reds
+#define COLOR1 #fe063f
+#define COLOR9 #fe3865
+
+! Greens
+#define COLOR2 #c7e1ff
+#define COLORA #ddedff
+
+! Yellows
+#define COLOR3 #febd04
+#define COLORB #feca36
+
+! Blues
+#define COLOR4 #1279b9
+#define COLORC #4194c7
+
+! Magentas
+#define COLOR5 #b91279
+#define COLORD #c74194
+
+! Cyans
+#define COLOR6 #79ffda
+#define COLORE #afffe9
+
+! Whites
+#define COLOR7 #ffffff
+#define COLORF #f1f1f1
+
