@@ -6,4 +6,3 @@ for file in "$HOME"/.config/profile.d/*.sh; do
 done
 
 unset file
- 
