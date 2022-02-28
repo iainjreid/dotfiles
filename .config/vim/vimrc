@@ -1,6 +1,5 @@
 " vi:syntax=vim
 
-"set t_Co=256
 set laststatus=2
 set backspace=indent,eol,start
 set background=dark
@@ -9,12 +8,15 @@ set background=dark
 set splitbelow
 set splitright
 
+" Turn on syntax highlighting
+syntax on
+
 highlight VertSplit cterm=NONE
 
 set fillchars+=vert:\│
 
 " Statusline
-set statusline=\ %f%=%y\ %p%%\ %c:%l\ 
+set statusline=\ %f%=%y\ %p%%\ %c:%l\
 
 " Simplify tab control
 map <leader>t :tabnew <Enter>
@@ -30,7 +32,7 @@ map <leader>7 7gt
 map <leader>8 8gt
 map <leader>9 9gt
 
-if has('mouse')
+if has("mouse")
   set mouse=a
 endif
 
@@ -47,60 +49,71 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-call plug#begin('~/.vim/plugged')
+let g:sessiondir = $XDG_STATE_HOME . "/vim/session"
 
-Plug 'junegunn/vim-easy-align'
+set runtimepath^=$XDG_CONFIG_HOME/vim
+set runtimepath+=$XDG_DATA_HOME/vim
+set runtimepath+=$XDG_CONFIG_HOME/vim/after
 
-Plug 'reedes/vim-pencil'
-Plug 'joereynolds/vim-minisnip'
+set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
+set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
+
+set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, "p", 0700)
+set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, "p", 0700)
+set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   "p", 0700)
+
+if (filewritable(g:sessiondir) != 2)
+  exe "silent !mkdir -p " g:sessiondir
+  redraw!
+endif
+
 
 " Set to ensure disk write for use with hot reloading
 set nobackup nowritebackup
 
-if executable('gtm')
-  Plug 'git-time-metric/gtm-vim-plugin'
+if executable("gtm")
+  packadd! git-time-metric
 endif
-
-call plug#end()
 
 " Starts a new session
 function StartSession()
-  let b:sessiondir = $HOME . "/.local/state/vim" . getcwd()
-  let b:sessionfile = b:sessiondir . "/session.vim"
-  
-  if (filewritable(b:sessiondir) != 2)
-    exe 'silent !mkdir -p ' b:sessiondir
-    redraw!
+  let b:sessionfile = g:sessiondir . getcwd() . ".vim"
+
+  if (filereadable(b:sessionfile))
+    echo "Session already exists"
+  else
+    exe "mksession! " . b:sessionfile
+    echo "Session started"
   endif
-  
-  exe "mksession! " . b:sessionfile
-  echo 'Session started'
 endfunction
 
 " Loads a session if it exists
 function LoadSession()
-  let b:sessiondir = $HOME . "/.local/state/vim" . getcwd()
-  let b:sessionfile = b:sessiondir . "/session.vim"
+  let b:sessionfile = g:sessiondir . getcwd() . ".vim"
 
   if (filereadable(b:sessionfile))
-    exe 'source ' b:sessionfile
-    echo 'Session loaded'
+    exe "source " . b:sessionfile
+    echo "Session loaded"
+  else
+    echo "Session doesn't exist"
   endif
 endfunction
 
 " Saves a session if it exists
 function SaveSession()
-  let b:sessiondir = $HOME . "/.local/state/vim" . getcwd()
-  let b:sessionfile = b:sessiondir . "session.vim"
+  let b:sessionfile = g:sessiondir . getcwd() . ".vim"
 
   if (filereadable(b:sessionfile))
     exe "mksession! " . b:sessionfile
+    echo "Session saved"
+  else
+    echo "Session doesn't exist"
   endif
 endfunction
 
 if !argc()
   au VimEnter * :call LoadSession()
   au VimLeave * :call SaveSession()
-  
+
   map <leader>m :call StartSession()<CR>
 endif
