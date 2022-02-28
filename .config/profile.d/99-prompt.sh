@@ -22,8 +22,26 @@ PS1_GIT="\$( [ -n \"\$(${IS_GIT})\" ] && ${GIT_BR} )"
 
 PS1_L="\$([ \$? -ne 0 ] && printf ${COLOR0} || printf ${COLOR1})●${COLOR_RESET} "
 
-PS1_R="${DIM}${PS1_PWD}${COLOR_RESET} ${PS1_GIT} \$([ -n \"\$($GIT_ST)\" ] && printf ${COLOR0} || printf ${COLOR1})●${COLOR_RESET}"
-PS1_R_OFFSET=24
+PS1_R="$DIM${PS1_PWD}$COLOR_RESET ${PS1_GIT} \$([ -n \"\$($GIT_ST)\" ] && printf $COLOR0 || printf $COLOR1)●$COLOR_RESET"
+PS1_R_OFFSET=$((${#DIM} + ${#COLOR_RESET} + ${#COLOR0} + ${#COLOR_RESET}))
 
-export PS1="\[${CURSOR_STORE}\$(printf \"%*s\" \$((\$(tput cols) + $PS1_R_OFFSET)) \"${PS1_R}\")${CURSOR_RESET}\]${PS1_L}"
+export PS1="\[${CURSOR_STORE}\$(printf \"%*s\" \$((\$(tput cols) + ${PS1_R_OFFSET} + 2)) \"${PS1_R}\")${CURSOR_RESET}\]${PS1_L}"
 
+unset CURSOR_STORE
+unset CURSOR_RESET
+
+unset IS_GIT
+unset GIT_BR
+unset GIT_ST
+
+unset COLOR_RESET
+unset COLOR0
+unset COLOR1
+unset DIM
+
+unset PS1_PWD
+unset PS1_GIT
+unset PS1_L
+
+unset PS1_R
+unset PS1_R_OFFSET
