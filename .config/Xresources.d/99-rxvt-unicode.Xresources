@@ -1,0 +1,54 @@
+! Shh...
+URxvt.termName:        xterm-256color
+
+!! Colors
+
+! Special
+URxvt.background:      COLOR0
+URxvt.foreground:      COLOR7
+URxvt.cursorColor:     COLORF
+
+! Black
+URxvt.color0:          COLOR0
+URxvt.color8:          COLOR8
+
+! Red
+URxvt.color1:          COLOR1
+URxvt.color9:          COLOR9
+
+! Green
+URxvt.color2:          COLOR2
+URxvt.color10:         COLORA
+
+! Yellow
+URxvt.color3:          COLOR3
+URxvt.color11:         COLORB
+
+! Blue
+URxvt.color4:          COLOR4
+URxvt.color12:         COLORC
+
+! Magenta
+URxvt.color5:          COLOR5
+URxvt.color13:         COLORD
+
+! Cyan
+URxvt.color6:          COLOR6
+URxvt.color14:         COLORE
+
+! White
+URxvt.color7:          COLOR7
+URxvt.color15:         COLORF
+
+URxvt.font:            xft:Cozette:size=9
+URxvt.internalBorder:  20
+URxvt.saveLines:       20000
+URxvt.cursorUnderline: true
+URxvt.scrollBar:       false
+
+! TODO: Patch this out! https://aur.archlinux.org/rxvt-unicode-patched.git
+URxvt.letterSpace:     -1
+
+! TODO: Disable this at compile time
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
