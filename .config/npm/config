@@ -1,2 +1,5 @@
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 
+prefix=${XDG_DATA_HOME}/npm
+
+

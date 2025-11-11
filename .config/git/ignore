@@ -6,4 +6,4 @@
 /.undodir/
 *.swp
 Session.vim
-
+.lite_workspace.lua

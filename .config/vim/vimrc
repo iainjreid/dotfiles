@@ -1,5 +1,27 @@
 " vi:syntax=vim
 
+" XDG -------------------------------------------------------------------- {{{
+set runtimepath-=$HOME/.vim
+set runtimepath-=$HOME/.vim/after
+set runtimepath^=$XDG_CONFIG_HOME/vim
+
+set packpath-=$HOME/.vim
+set packpath-=$HOME/.vim/after
+set packpath^=$XDG_CONFIG_HOME/vim
+
+set backupdir=$XDG_STATE_HOME/vim/backup | call mkdir(&backupdir, "p", 0700)
+set directory=$XDG_STATE_HOME/vim/swap   | call mkdir(&directory, "p", 0700)
+set undodir=$XDG_STATE_HOME/vim/undo     | call mkdir(&undodir,   "p", 0700)
+
+" TODO Remove the viminfo feature at compile time 
+set viminfo+=n$XDG_STATE_HOME/vim/viminfo
+
+filetype plugin on
+
+" ------------------------------------------------------------------------ }}}
+
+" Misc ------------------------------------------------------------------- {{{
+
 set laststatus=2
 set backspace=indent,eol,start
 set background=dark
@@ -8,8 +30,7 @@ set background=dark
 set splitbelow
 set splitright
 
-" Turn on syntax highlighting
-syntax on
+syntax on " Turn on syntax highlighting
 
 highlight VertSplit cterm=NONE
 
@@ -17,6 +38,10 @@ set fillchars+=vert:\│
 
 " Statusline
 set statusline=\ %f%=%y\ %p%%\ %c:%l\
+
+" ------------------------------------------------------------------------ }}}
+
+" Navigation ------------------------------------------------------------- {{{
 
 " Simplify tab control
 map <leader>t :tabnew <Enter>
@@ -32,8 +57,18 @@ map <leader>7 7gt
 map <leader>8 8gt
 map <leader>9 9gt
 
+" ------------------------------------------------------------------------ }}}
+
+
+""
+set foldcolumn=2
+hi FoldColumn ctermbg=black ctermfg=darkgrey
+
+set spelllang=en_gb
+
 if has("mouse")
   set mouse=a
+  set ttymouse=sgr
 endif
 
 " Simplify split pane navigation
@@ -49,25 +84,6 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 
-let g:sessiondir = $XDG_STATE_HOME . "/vim/session"
-
-set runtimepath^=$XDG_CONFIG_HOME/vim
-set runtimepath+=$XDG_DATA_HOME/vim
-set runtimepath+=$XDG_CONFIG_HOME/vim/after
-
-set packpath^=$XDG_DATA_HOME/vim,$XDG_CONFIG_HOME/vim
-set packpath+=$XDG_CONFIG_HOME/vim/after,$XDG_DATA_HOME/vim/after
-
-set backupdir=$XDG_CACHE_HOME/vim/backup | call mkdir(&backupdir, "p", 0700)
-set directory=$XDG_CACHE_HOME/vim/swap   | call mkdir(&directory, "p", 0700)
-set undodir=$XDG_CACHE_HOME/vim/undo     | call mkdir(&undodir,   "p", 0700)
-
-if (filewritable(g:sessiondir) != 2)
-  exe "silent !mkdir -p " g:sessiondir
-  redraw!
-endif
-
-
 " Set to ensure disk write for use with hot reloading
 set nobackup nowritebackup
 
@@ -75,21 +91,49 @@ if executable("gtm")
   packadd! git-time-metric
 endif
 
+" Session management ----------------------------------------------------- {{{
+
+let g:sessiondir = $XDG_STATE_HOME . "/vim/session/"
+
+if (filewritable(g:sessiondir) != 2)
+  exe "silent !mkdir -p " g:sessiondir
+  redraw!
+endif
+
+function PromptForSession()
+  let b:sessionname = input("Enter session name: ")
+  let b:sessionfile = g:sessiondir . b:sessionname . ".vim"
+  
+  redraw!
+
+  return b:sessionfile  
+endfunction    
+
 " Starts a new session
 function StartSession()
-  let b:sessionfile = g:sessiondir . getcwd() . ".vim"
+  let b:sessionfile = PromptForSession()
+  
+  if (empty(b:sessionfile))
+    echo "No session provided"
+    return
+  endif
 
   if (filereadable(b:sessionfile))
-    echo "Session already exists"
+    echo "Session already exists: " . b:sessionfile
   else
-    exe "mksession! " . b:sessionfile
+    exe "mksession " . b:sessionfile
     echo "Session started"
   endif
 endfunction
 
 " Loads a session if it exists
 function LoadSession()
-  let b:sessionfile = g:sessiondir . getcwd() . ".vim"
+  let b:sessionfile = PromptForSession()
+
+  if (empty(b:sessionfile))
+    echo "No session provided"
+    return
+  endif
 
   if (filereadable(b:sessionfile))
     exe "source " . b:sessionfile
@@ -101,19 +145,20 @@ endfunction
 
 " Saves a session if it exists
 function SaveSession()
-  let b:sessionfile = g:sessiondir . getcwd() . ".vim"
+  if (empty(v:this_session))
+    echo "No session active"
+    return
+  endif
 
-  if (filereadable(b:sessionfile))
-    exe "mksession! " . b:sessionfile
+  if (filewritable(v:this_session))
+    exe "mksession! " . v:this_session
     echo "Session saved"
   else
-    echo "Session doesn't exist"
+    echo "Unable to save session"
   endif
 endfunction
 
-if !argc()
-  au VimEnter * :call LoadSession()
-  au VimLeave * :call SaveSession()
+map <leader>q :call LoadSession()<CR>
+map <leader>w :call SaveSession()<CR>
 
-  map <leader>m :call StartSession()<CR>
-endif
+" ------------------------------------------------------------------------ }}}

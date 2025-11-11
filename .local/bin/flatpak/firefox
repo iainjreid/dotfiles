@@ -1,0 +1,6 @@
+#!/bin/sh
+
+PROFILE="${XDG_CONFIG_HOME}/mozilla/firefox"
+
+flatpak run --filesystem=$PROFILE --no-a11y-bus --no-session-bus --die-with-parent org.mozilla.firefox --profile $PROFILE
+

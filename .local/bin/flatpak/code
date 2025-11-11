@@ -1,0 +1,4 @@
+#!/bin/sh
+
+FLATPAK_ENABLE_SDK_EXT=node16 flatpak run com.vscodium.codium --no-sandbox $1
+

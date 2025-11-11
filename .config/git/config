@@ -18,6 +18,7 @@
 	br = branch -rvv
 	ci = commit
 	cl = clone
+	tidy = !git co master && git purr && git bdm
 	clb = "!f() { [[ -z ${1} ]] && echo "Specify repository" || git clone git@bitbucket.org:${1}; }; f"
 	clg = "!f() { [[ -z ${1} ]] && echo "Specify repository" || git clone git@github.com:${1}; }; f"
 	co = checkout
@@ -66,3 +67,7 @@
 
 [push]
 	default = simple
+[safe]
+	directory = /var/db/kiss/community
+	directory = /var/db/kiss/repo
+	directory = /var/db/kiss/bin
