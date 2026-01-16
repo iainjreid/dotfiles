@@ -1,6 +1,7 @@
 [include]
 	path = ./config.local
 
+# TODO: Prune and document short commands
 [core]
 	editor = vim -c "star!"
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
@@ -67,6 +68,8 @@
 
 [push]
 	default = simple
+
+# TODO: Move KISS directories to local configuration
 [safe]
 	directory = /var/db/kiss/community
 	directory = /var/db/kiss/repo
