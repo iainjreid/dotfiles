@@ -1,0 +1,2 @@
+# Ignore all ".local" config files (used for Git and shell configuration)
+**/*.local
