@@ -1,5 +1,8 @@
 .DS_Store
 
+# Backup files for Elementary OS
+*~
+
 /.idea/
 /.vscode/
 /.gtm/
