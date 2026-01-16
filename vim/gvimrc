@@ -1,6 +1,0 @@
-" vi:syntax=vim
-
-set guioptions=
-set guifont=Menlo:h12
-
-colorscheme dynamic
