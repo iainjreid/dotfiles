@@ -22,7 +22,7 @@ help:
 	@egrep "^# target: " Makefile | sed -e "s/# target: \(\b\)/\1/"
 
 # target: all	Link all of the dotfiles
-all: bin git npm profile rust tmux vim xdg
+all: bin fzf git npm profile rust tmux vim xdg
 
 bin: profile
 	$(MAKE)	link-config		TARGET=profile.d/10-bin.sh
@@ -32,6 +32,9 @@ foil: bin
 
 fwd: bin
 	$(MAKE)	link-bin		TARGET=fwd
+
+fzf: profile
+	$(MAKE)	link-config		TARGET=profile.d/99-fzf.sh
 
 git:
 	$(MAKE)	link-config		TARGET=git
