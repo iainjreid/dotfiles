@@ -7,3 +7,6 @@
 [submodule ".config/vim/pack/plugins/start/vim-pencil"]
 	path = .config/vim/pack/plugins/start/vim-pencil
 	url = git@github.com:reedes/vim-pencil.git
+[submodule ".config/vim/pack/plugins/opt/lsp"]
+	path = .config/vim/pack/plugins/opt/lsp
+	url = git@github.com:yegappan/lsp.git
